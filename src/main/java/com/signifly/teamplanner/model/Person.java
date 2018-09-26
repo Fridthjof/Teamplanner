@@ -19,7 +19,7 @@ public class Person {
     private String education;
 
     @ManyToOne
-    private Technologies technologies;
+    private Technology technologies;
 
     @NotNull
     private Long yearsOfExp;
@@ -53,11 +53,11 @@ public class Person {
         this.education = education;
     }
 
-    public Technologies getTechnologies() {
+    public Technology getTechnologies() {
         return technologies;
     }
 
-    public void setTechnologies(Technologies technologies) {
+    public void setTechnologies(Technology technologies) {
         this.technologies = technologies;
     }
 

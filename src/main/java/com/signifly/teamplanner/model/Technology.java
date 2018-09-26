@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Technologies {
+public class Technology {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +14,7 @@ public class Technologies {
     @NotNull
     private String name;
 
-    public Technologies() {
+    public Technology() {
     }
 
     public Long getId() {
