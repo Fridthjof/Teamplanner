@@ -1,4 +1,7 @@
 package com.signifly.teamplanner.repositories;
 
-public interface PersonRepository {
+import com.signifly.teamplanner.model.Person;
+import org.springframework.data.repository.CrudRepository;
+
+public interface PersonRepository extends CrudRepository<Person, Long> {
 }

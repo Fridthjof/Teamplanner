@@ -2,24 +2,26 @@ package com.signifly.teamplanner.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.List;
 
 
 /***
  * Entity of a Person.
  */
 @Entity
-public class Person {
+public class Person implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
 
     @NotNull
     private String education;
 
-    @ManyToOne
-    private Technology technologies;
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Technology> technologies;
 
     @NotNull
     private Long yearsOfExp;
@@ -53,11 +55,11 @@ public class Person {
         this.education = education;
     }
 
-    public Technology getTechnologies() {
+    public List<Technology> getTechnologies() {
         return technologies;
     }
 
-    public void setTechnologies(Technology technologies) {
+    public void setTechnologies(List<Technology> technologies) {
         this.technologies = technologies;
     }
 

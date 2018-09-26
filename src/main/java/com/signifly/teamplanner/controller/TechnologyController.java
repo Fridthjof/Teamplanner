@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.net.URL;
-import java.nio.file.Paths;
 
 @RestController
 @RequestMapping("/api/technology")
@@ -31,7 +29,7 @@ public class TechnologyController {
     /***
      * Method for creating mockdata
      * read JSON and insert it into DB.
-     * @return
+     * @return HttpStatus for either OK or INTERNAL_SERVER_ERROR
      */
     @RequestMapping("/MockData")
     public ResponseEntity createMockData() {
@@ -41,13 +39,11 @@ public class TechnologyController {
             Technology[] tech = g.fromJson(reader, Technology[].class);
             for (Technology technology : tech) {
                 technologyRepository.save(technology);
-                System.out.println("Saved " + technology.getName());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
         return new ResponseEntity(HttpStatus.OK);
     }
-
 }
