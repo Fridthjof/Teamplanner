@@ -21,7 +21,7 @@ public class Team implements Serializable {
     private Person teamMembers;
 
     @NotNull
-    @ManyToMany
+    @ManyToOne
     private Project project;
 
     public Team() {

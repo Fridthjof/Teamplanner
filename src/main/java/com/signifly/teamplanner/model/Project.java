@@ -17,7 +17,7 @@ public class Project {
     @NotNull
     private ZonedDateTime estimatedEndDate;
 
-    @NotNull
+    @OneToOne
     private Customer customer;
 
     public Project() {
