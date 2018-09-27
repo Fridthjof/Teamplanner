@@ -39,17 +39,13 @@ public class PersonController {
     public ResponseEntity createMockData() {
         Gson g = new Gson();
         try {
+
+            // Reading JSON mockdata
             JsonReader reader = new JsonReader(new FileReader("src/test/resources/mockdata/persons.json"));
             Person[] people = g.fromJson(reader, Person[].class);
 
-            List<Technology> technologyList = new ArrayList<>();
-            technologyList.add(technologyRepository.findByName("Java"));
-            technologyList.add(technologyRepository.findByName("C#"));
-            technologyList.add(technologyRepository.findByName("JavaScript"));
-            technologyList.add(technologyRepository.findByName("PHP"));
-
             for (Person person : people) {
-                person.setTechnologies(technologyList);
+                person.setTechnologies(technologyRepository.findRand());
                 personRepository.save(person);
             }
         } catch (FileNotFoundException e) {

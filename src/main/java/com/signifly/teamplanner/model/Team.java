@@ -3,6 +3,7 @@ package com.signifly.teamplanner.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Team implements Serializable {
@@ -17,12 +18,12 @@ public class Team implements Serializable {
     private Person projectManager;
 
     @NotNull
-    @ManyToOne
-    private Person teamMembers;
+    @ManyToMany
+    private List<Person> teamMembers;
 
     @NotNull
-    @ManyToOne
-    private Project project;
+    @OneToMany
+    private List<Project> projects;
 
     public Team() {
     }
@@ -43,19 +44,19 @@ public class Team implements Serializable {
         this.projectManager = projectManager;
     }
 
-    public Person getTeamMembers() {
+    public List<Person> getTeamMembers() {
         return teamMembers;
     }
 
-    public void setTeamMembers(Person teamMembers) {
+    public void setTeamMembers(List<Person> teamMembers) {
         this.teamMembers = teamMembers;
     }
 
-    public Project getProject() {
-        return project;
+    public List<Project> getProjects() {
+        return projects;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 }
