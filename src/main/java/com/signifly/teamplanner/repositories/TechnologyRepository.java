@@ -10,6 +10,8 @@ public interface TechnologyRepository extends CrudRepository<Technology, Long> {
 
     Technology findByName(String name);
 
+    List<Technology> findAll();
+
     @Query(value="SELECT * FROM Technology ORDER BY RAND() LIMIT 4", nativeQuery = true)
     List<Technology> findRand();
 }

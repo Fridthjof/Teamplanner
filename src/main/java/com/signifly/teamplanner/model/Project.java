@@ -21,6 +21,8 @@ public class Project implements Serializable {
     @OneToOne
     private Customer customer;
 
+    private String description;
+
     public Project() {
     }
 
@@ -54,5 +56,13 @@ public class Project implements Serializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

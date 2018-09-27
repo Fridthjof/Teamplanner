@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileNotFoundException;
@@ -45,5 +46,11 @@ public class TechnologyController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/getAllTechs", method = RequestMethod.GET)
+    public ResponseEntity getAllTechs(){
+        return new ResponseEntity(technologyRepository.findAll(), HttpStatus.OK);
     }
 }
