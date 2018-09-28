@@ -35,7 +35,7 @@ public class TeamController {
         List<Person> people = personRepository.findAll();
         int calc = 100 / technologies.size();
         for (Person p : people) {
-            
+
             int rating = 0;
             for (Technology technology : technologies) {
                 for (Technology technology1 : p.getTechnologies()){
