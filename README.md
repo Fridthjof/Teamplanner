@@ -19,5 +19,5 @@ Team planner case
 
 
 ## Mock data
-- To create Skills/Technologies call - http://localhost:8080/api/technology/MockData 
-- To create persons call - http://localhost:8080/api/person/MockData
+- To create Skills/Technologies call - http://localhost:PORT_NUM/api/technology/MockData 
+- To create persons call - http://localhost:PORT_NUM/api/person/MockData

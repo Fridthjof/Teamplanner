@@ -36,7 +36,7 @@ public class TechnologyController {
     public ResponseEntity createMockData() {
         Gson g = new Gson();
         try {
-            JsonReader reader = new JsonReader(new FileReader("src/test/resources/mockdata/technologies.json"));
+            JsonReader reader = new JsonReader(new FileReader("technologies.json"));
             Technology[] tech = g.fromJson(reader, Technology[].class);
             for (Technology technology : tech) {
                 technologyRepository.save(technology);

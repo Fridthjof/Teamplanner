@@ -43,7 +43,7 @@ public class PersonController {
         Gson g = new Gson();
         try {
             // Reading JSON mockdata
-            JsonReader reader = new JsonReader(new FileReader("src/test/resources/mockdata/persons.json"));
+            JsonReader reader = new JsonReader(new FileReader("persons.json"));
             Person[] people = g.fromJson(reader, Person[].class);
 
             for (Person person : people) {
