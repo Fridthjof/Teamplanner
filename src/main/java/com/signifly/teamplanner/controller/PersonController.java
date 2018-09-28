@@ -42,7 +42,6 @@ public class PersonController {
     public ResponseEntity createMockData() {
         Gson g = new Gson();
         try {
-
             // Reading JSON mockdata
             JsonReader reader = new JsonReader(new FileReader("src/test/resources/mockdata/persons.json"));
             Person[] people = g.fromJson(reader, Person[].class);
@@ -58,11 +57,8 @@ public class PersonController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-
     @RequestMapping(value = "/createPerson", method = RequestMethod.POST)
     public ResponseEntity createNewPerson(@RequestBody Person person) {
-        System.out.println(person);
-        System.out.println(person.getName() + " is trying to be created");
         try {
             personRepository.save(person);
         } catch (Exception ex) {
@@ -71,6 +67,4 @@ public class PersonController {
         }
         return new ResponseEntity(HttpStatus.OK);
     }
-
-
 }

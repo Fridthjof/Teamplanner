@@ -26,19 +26,15 @@ public class TeamController {
         this.personRepository = personRepository;
     }
 
-
     @RequestMapping(value = "/suggestTeam", method = RequestMethod.POST)
     public ResponseEntity suggestTeam(@RequestBody List<Technology> technologies) {
-        // Do the rating system here!
-        System.out.println("Do we even get in here");
         List<Person> suggestedPersons = new ArrayList<>();
         List<Person> people = personRepository.findAll();
         int calc = 100 / technologies.size();
         for (Person p : people) {
-
             int rating = 0;
             for (Technology technology : technologies) {
-                for (Technology technology1 : p.getTechnologies()){
+                for (Technology technology1 : p.getTechnologies()) {
                     if (technology1.getId().equals(technology.getId())) {
                         rating = rating + calc;
                         p.setRatingNumber(rating);
