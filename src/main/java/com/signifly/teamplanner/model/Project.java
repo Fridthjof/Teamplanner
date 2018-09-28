@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Entity
 public class Project implements Serializable {
@@ -22,6 +23,10 @@ public class Project implements Serializable {
     private Customer customer;
 
     private String description;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Technology> technologies;
+
 
     public Project() {
     }
@@ -64,5 +69,13 @@ public class Project implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Technology> getTechnologies() {
+        return technologies;
+    }
+
+    public void setTechnologies(List<Technology> technologies) {
+        this.technologies = technologies;
     }
 }

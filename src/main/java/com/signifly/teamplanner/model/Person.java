@@ -35,6 +35,9 @@ public class Person implements Serializable {
     @NotNull
     private int cellnumber;
 
+    @Transient
+    private int ratingNumber;
+
 
     public Person() {
     }
@@ -93,5 +96,13 @@ public class Person implements Serializable {
 
     public void setCellnumber(int cellnumber) {
         this.cellnumber = cellnumber;
+    }
+
+    public int getRatingNumber() {
+        return ratingNumber;
+    }
+
+    public void setRatingNumber(int ratingNumber) {
+        this.ratingNumber = ratingNumber;
     }
 }
